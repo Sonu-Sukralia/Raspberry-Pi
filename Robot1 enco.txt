@@ -1,0 +1,41 @@
+esphome:
+  name: robot1
+  platform: ESP8266
+  board: nodemcuv2
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "c00466ea1c87f75046704bdb84bc7247"
+
+wifi:
+  ssid: "Starlink"
+  password: "sonusonu"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Starlink"      #if hotspot of it will create their own hotspot
+    password: "sonusonu"
+
+captive_portal:
+
+
+switch:
+  - platform: gpio
+    pin: D4
+    name: "robot on/off"
+    id: internel_led
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D5
+      mode: INPUT_PULLUP
+    name: "Door"
+       
+       
+       
